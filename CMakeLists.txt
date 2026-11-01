@@ -81,32 +81,7 @@ ADD_EXECUTABLE( qsimplesheet ${QSimpleSheet_SRCS} )
 TARGET_LINK_LIBRARIES( qsimplesheet Qt5::Widgets )
 
 
-if( UNIX AND NOT APPLE )
-   if( NOT DESKTOP_ENTRY )
-      set( DESKTOP_ENTRY qsimplesheet.desktop )
-   endif( NOT DESKTOP_ENTRY )
-
-   add_custom_command( OUTPUT ${DESKTOP_ENTRY}
-      COMMAND touch ${DESKTOP_ENTRY}
-      COMMAND sh ${QSimpleSheet_SOURCE_DIR}/qsimplesheet-desktop.sh ${CMAKE_INSTALL_PREFIX} >${DESKTOP_ENTRY}
-      DEPENDS qsimplesheet-desktop.sh
-      COMMENT "Generating desktop entry file"
-      )
-   add_custom_target( DESKTOP_ENTRY_FILE ALL
-      DEPENDS ${DESKTOP_ENTRY}
-      )
-
-   set( APP_ICON src/images/applicationIcon.png )
-endif( UNIX AND NOT APPLE )
-
-if( NOT DESKTOP_ENTRY_PATH )
-  set( DESKTOP_ENTRY_PATH ${CMAKE_INSTALL_PREFIX}/share/applications )
-endif( NOT DESKTOP_ENTRY_PATH )
-
-if(UNIX AND NOT APPLE)
-   install( FILES ${APP_ICON} DESTINATION share/icons )
-   install( FILES ${QSimpleSheet_BINARY_DIR}/${DESKTOP_ENTRY} DESTINATION ${DESKTOP_ENTRY_PATH} )
-endif(UNIX AND NOT APPLE)
-
+# NOTE: the desktop-entry generation (qsimplesheet-desktop.sh) was removed
+# from the repository; only the binary itself is installed now.
 
 install(TARGETS qsimplesheet DESTINATION bin)
