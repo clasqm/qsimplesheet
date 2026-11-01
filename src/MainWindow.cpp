@@ -592,11 +592,13 @@ void MainWindow::updateActions()
    {
       int alignment = table -> getItemAlignment(selectedRange.topRow(),
                                                 selectedRange.leftColumn());
-      if (alignment == (Qt::AlignLeft | Qt::AlignVCenter))
+      //NOTE: Qt::Align* | Qt::Align* is a QFlags (unsigned int), so it needs
+      //an explicit cast to compare with int (avoids -Wsign-compare)
+      if (alignment == static_cast<int>(Qt::AlignLeft | Qt::AlignVCenter))
          alignLeftAction -> setChecked(true);
       else if (alignment == Qt::AlignCenter)
          alignCenterAction -> setChecked(true);
-      else if (alignment == (Qt::AlignRight | Qt::AlignVCenter))
+      else if (alignment == static_cast<int>(Qt::AlignRight | Qt::AlignVCenter))
          alignRightAction -> setChecked(true);
    }
 }
@@ -816,7 +818,7 @@ void MainWindow::sort()
 void MainWindow::aboutQSimpleSheet()
 {
    QMessageBox::about(this, tr("About QSimpleSheet"), 
-                      tr("<p align=\"center\"><b>QSimpleSheet</b><br>version "VERSION"</p>"
+                      tr("<p align=\"center\"><b>QSimpleSheet</b><br>version " VERSION "</p>"
                          "<p>QSimpleSheet is a simple spreadsheet.<br>"
                          "This is a free software; you can redistribute it and/or modify "
                          "it under the terms of the GNU General Public License (GPL) "
