@@ -1,6 +1,6 @@
 Minimum requirements:
-cmake version 2.4
-Qt 4.3
+cmake version 3.16
+Qt 5 (Widgets module)
 
 To build QSimpleSheet using cmake, call these commands:
 $ mkdir build

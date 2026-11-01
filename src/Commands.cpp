@@ -23,7 +23,7 @@
 // +-------------------------------------------------------------------------+
 
 #include <iostream> //NOTE: for debugging
-#include <QtGui>
+#include <QtWidgets>
 #include "Commands.h"
 #include "Graphic.h"
 #include "PictureGraphic.h"

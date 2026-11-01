@@ -42,7 +42,9 @@ class ItemDelegate : public QItemDelegate
       void setModelData(QWidget*, QAbstractItemModel*, const QModelIndex&) const;
       
    signals:
-      void dataChangedSignal(int, int, QString&, QString&) const;
+      //NOTE: a const signal is not reliable with Qt5's moc,
+      //so this one is non-const (see setModelData for the const_cast)
+      void dataChangedSignal(int, int, QString&, QString&);
       
    private:
       QAbstractItemDelegate *lastItemDelegate;

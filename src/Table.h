@@ -27,7 +27,8 @@
 #define SHPREADSHEET_H
 
 #include <QTableWidget>
-#include <QTableWidgetSelectionRange>
+//NOTE: QTableWidgetSelectionRange is declared in qtablewidget.h (Qt5),
+//there is no standalone class header to include
 #include "Graphic.h"
 class QUndoStack;
 class QMimeData;

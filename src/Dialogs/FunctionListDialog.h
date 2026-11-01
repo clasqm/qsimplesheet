@@ -22,6 +22,9 @@
 // | Author:  Shahab Shirazi <shahab.sh.70@gmail.com>                        |
 // +-------------------------------------------------------------------------+
 
+#ifndef FUNCTIONLISTDIALOG_H
+#define FUNCTIONLISTDIALOG_H
+
 #include <QDialog>
 #include "ui_FunctionListDialog.h"
 
@@ -32,4 +35,6 @@ class FunctionListDialog : public QDialog, public Ui::FunctionListDialog
    public:
       FunctionListDialog(QWidget* = 0);
 };
+
+#endif
 

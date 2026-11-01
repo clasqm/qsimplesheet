@@ -22,7 +22,7 @@
 // | Author:  Shahab Shirazi <shahab.sh.70@gmail.com>                        |
 // +-------------------------------------------------------------------------+
 
-#include <QtGui>
+#include <QtWidgets>
 #include "GraphicPropertiesDialog.h"
 
 GraphicPropertiesDialog::GraphicPropertiesDialog(const QSize &os, const QSize &scaledSize,

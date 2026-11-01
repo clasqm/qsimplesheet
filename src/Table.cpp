@@ -24,7 +24,8 @@
 
 #include <iostream> //NOTE for debuging
 #include <cmath>
-#include <QtGui>
+#include <algorithm>
+#include <QtWidgets>
 #include "Table.h"
 #include "Cell.h"
 #include "ItemDelegate.h"
@@ -467,7 +468,8 @@ void Table::sort(TableSort tableSort)
          rowsOrColumns.append(j);
    
    tableSort.setTable(this);
-   qStableSort(rowsOrColumns.begin(), rowsOrColumns.end(), tableSort);
+   //qStableSort was removed in Qt5
+   std::stable_sort(rowsOrColumns.begin(), rowsOrColumns.end(), tableSort);
    
    QTableWidgetItem *cells[range.rowCount()][range.columnCount()];
    for (int i=0; i<range.rowCount(); i++)

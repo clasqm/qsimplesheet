@@ -22,7 +22,7 @@
 // | Author:  Shahab Shirazi <shahab.sh.70@gmail.com>                        |
 // +-------------------------------------------------------------------------+
 
-#include <QtGui>
+#include <QtWidgets>
 #include "MainWindow.h"
 #include "QSimplesheet.h"
 #include "Table.h"
@@ -449,12 +449,13 @@ bool MainWindow::askToSaveChanges()
 {
    if (isWindowModified())
    {
-      int answer = QMessageBox::warning(this, "Save", 
+      //NOTE (Qt5): the old Qt4 three-button overload with the Default/Escape
+      //flags was removed in Qt5, use the StandardButtons overload instead
+      int answer = QMessageBox::warning(this, "Save",
                                         "This document has been modified.\n"
                                         "Do you want to save it?",
-                                        QMessageBox::Yes | QMessageBox::Default,
-                                        QMessageBox::No,
-                                        QMessageBox::Cancel | QMessageBox::Escape);
+                                        QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel,
+                                        QMessageBox::Yes);
       if (answer == QMessageBox::Cancel)
          return false;
       else if (answer == QMessageBox::Yes)

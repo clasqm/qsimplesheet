@@ -24,8 +24,9 @@
 
 #include <iostream> //NOTE: for debugging
 #include <stdexcept>
+#include <algorithm>
 using std::runtime_error;
-#include <QtGui>
+#include <QtCore>
 #include "Calculator.h"
 #include "Table.h"
 
@@ -754,7 +755,8 @@ double Calculator::func_average(const QStringList &stringArgs, const QList<doubl
 double Calculator::func_median(const QStringList &stringArgs, const QList<double> &doubleArgs)
 {
    QList<double> allData = extractData(stringArgs, doubleArgs);
-   qStableSort(allData);
+   //qStableSort was removed in Qt5
+   std::stable_sort(allData.begin(), allData.end());
    if (allData.size()%2 != 0)
       return allData[allData.size()/2];
    else

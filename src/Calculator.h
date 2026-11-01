@@ -26,6 +26,9 @@
 #define CALCULATOR_H
 
 #include <cmath>
+#include <QString>
+#include <QStringList>
+#include <QList>
 #define PI 3.14159265358979323846
 
 class Table;

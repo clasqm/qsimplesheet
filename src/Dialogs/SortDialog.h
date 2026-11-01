@@ -26,7 +26,7 @@
 #define SORTDIALOG_H
 
 #include <QDialog>
-#include <QTableWidgetSelectionRange>
+#include <QTableWidget>
 #include "ui_SortDialog.h"
 class TableSort;
 

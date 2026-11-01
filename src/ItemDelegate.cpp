@@ -22,7 +22,7 @@
 // | Author:  Shahab Shirazi <shahab.sh.70@gmail.com>                        |
 // +-------------------------------------------------------------------------+
 
-#include <QtGui>
+#include <QtWidgets>
 #include "ItemDelegate.h"
 #include "Table.h"
 #include <iostream> //NOTE for debugging
@@ -144,7 +144,10 @@ void ItemDelegate::setModelData(QWidget *editorWidget, QAbstractItemModel *model
    }
 
    if (oldData != newData)
-      emit dataChangedSignal(index.row(), index.column(), oldData, newData);
+      //the signal is not const, so we need a const_cast to emit it from
+      //this const member function (Qt5 moc)
+      emit const_cast<ItemDelegate*>(this)->dataChangedSignal(index.row(),
+                              index.column(), oldData, newData);
    // model -> setData(index, newData);
    //NOTE: data wil be set by emiting this signal, so the upper line is not needed.
 

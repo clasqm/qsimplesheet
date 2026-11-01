@@ -30,6 +30,8 @@
 class Table;
 class QLabel;
 class QAction;
+class QMenu;
+class QToolBar;
 class FindDialog;
 class QLineEdit;
 class QMessageBox;
