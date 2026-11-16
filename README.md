@@ -4,6 +4,7 @@ qSimpleSheet
 **Description:** A simple spreadsheet written in QT
 
 [![qsimplesheet.png](https://i.postimg.cc/Pq9F82gd/qsimplesheet.png)](https://postimg.cc/XZKgRcNP)
+
 Adapted and packaged for Haiku by Michel Clasquin-Johnson. Tested on Haiku R1/beta6 x86_64.
 
 **Requires:** qt5  
